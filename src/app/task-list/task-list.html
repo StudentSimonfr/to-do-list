@@ -1,0 +1,49 @@
+<section>
+  <h2>Nouvelle tâche</h2>
+  <app-task-form (saved)="add($event)" />
+</section>
+
+<section>
+  <h2>Mes tâches</h2>
+  <p class="counter" aria-live="polite">
+    {{ service.remaining() }} à faire / {{ service.done() }} faites
+  </p>
+
+  <div class="filters">
+    <label>
+      Recherche
+      <input type="search" #search [value]="query()" (input)="query.set(search.value)">
+    </label>
+    <div role="group" aria-label="Filtrer par statut">
+      <button type="button" [class.active]="status() === 'all'"
+        [attr.aria-pressed]="status() === 'all'" (click)="status.set('all')">Toutes</button>
+      <button type="button" [class.active]="status() === 'todo'"
+        [attr.aria-pressed]="status() === 'todo'" (click)="status.set('todo')">À faire</button>
+      <button type="button" [class.active]="status() === 'done'"
+        [attr.aria-pressed]="status() === 'done'" (click)="status.set('done')">Faites</button>
+    </div>
+  </div>
+
+  <ul class="tasks">
+    @for (t of visible(); track t.id) {
+      <li>
+        @if (editingId() === t.id) {
+          <app-task-form [task]="t" (saved)="save(t.id, $event)" (cancelled)="editingId.set(null)" />
+        } @else {
+          <app-task-item [task]="t"
+            (toggled)="service.toggle($event)"
+            (edit)="editingId.set($event)"
+            (deleted)="remove(t)" />
+        }
+      </li>
+    } @empty {
+      <li class="empty">
+        @if (service.total() === 0) {
+          Aucune tâche pour le moment.
+        } @else {
+          Aucune tâche ne correspond à ce filtre.
+        }
+      </li>
+    }
+  </ul>
+</section>

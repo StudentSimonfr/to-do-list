@@ -1,12 +1,11 @@
+<header class="app-header">
+  <h1>To-Do List</h1>
+  <nav aria-label="Navigation principale">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste</a>
+    <a routerLink="/stats" routerLinkActive="active">Stats</a>
+  </nav>
+</header>
 
-<style>
-
-</style>
-
-<main class="main">
-  <h1>Tâches</h1>
+<main>
+  <router-outlet />
 </main>
-
-
-
-<router-outlet />

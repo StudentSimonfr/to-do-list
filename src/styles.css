@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f4f5fa; --card: #fff; --text: #1f2430; --muted: #5b6475;
+  --primary: #3b5bdb; --danger: #c92a2a; --border: #d3d8e4;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+main { max-width: 760px; margin: 0 auto; padding: 1rem; }
+
+.app-header { background: var(--primary); color: #fff; padding: .75rem 1rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+.app-header h1 { margin: 0; font-size: 1.4rem; }
+.app-header a { color: #fff; margin-left: 1rem; text-decoration: none; padding-bottom: 2px; }
+.app-header a.active { border-bottom: 2px solid #fff; font-weight: 600; }
+
+section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+h2 { margin-top: 0; font-size: 1.15rem; }
+label { display: block; margin-bottom: .6rem; font-weight: 600; }
+input[type="text"], input[type="search"], input[type="date"], textarea {
+  display: block; width: 100%; margin-top: .25rem; padding: .5rem;
+  border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+input[aria-invalid="true"] { border-color: var(--danger); border-width: 2px; }
+.error { color: var(--danger); min-height: 1.2em; margin: 0 0 .5rem; font-size: .9rem; }
+
+button { font: inherit; padding: .45rem .9rem; border: 1px solid var(--primary);
+  background: var(--primary); color: #fff; border-radius: 6px; cursor: pointer; }
+button[type="button"] { background: #fff; color: var(--primary); }
+button.danger { border-color: var(--danger); color: var(--danger); }
+button.active { background: var(--primary); color: #fff; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #f59f00; outline-offset: 2px; }
+
+.filters { display: flex; gap: 1rem; flex-wrap: wrap; align-items: end; margin-bottom: 1rem; }
+.tasks { list-style: none; padding: 0; margin: 0; }
+.tasks > li { border-top: 1px solid var(--border); padding: .75rem 0; }
+.task .check { display: flex; gap: .5rem; align-items: center; margin: 0; }
+.task.done .title { text-decoration: line-through; color: var(--muted); }
+.description, .due { margin: .25rem 0 0 1.6rem; color: var(--muted); }
+.actions { display: flex; gap: .5rem; margin-top: .5rem; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 0; }
+.stats div { background: var(--bg); border-radius: 8px; padding: 1rem; text-align: center; }
+.stats dt { color: var(--muted); }
+.stats dd { margin: .25rem 0 0; font-size: 2rem; font-weight: 700; }
+progress { width: 100%; height: 1.2rem; margin-top: 1rem; }
+
+textarea {
+  resize: none;      /* plus de poignée de redimensionnement */
+  overflow-y: auto;  /* barre de défilement vertical si le texte dépasse */
+}

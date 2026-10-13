@@ -1,0 +1,20 @@
+<div class="task" [class.done]="task().done">
+  <label class="check">
+    <input type="checkbox" [checked]="task().done" (change)="toggled.emit(task().id)">
+    <span class="title">{{ task().title }}</span>
+  </label>
+
+  @if (task().description) {
+    <p class="description">{{ task().description }}</p>
+  }
+  @if (task().dueDate) {
+    <p class="due">Échéance : {{ task().dueDate | date: 'dd/MM/yyyy' }}</p>
+  }
+
+  <div class="actions">
+    <button type="button" (click)="edit.emit(task().id)"
+      [attr.aria-label]="'Modifier ' + task().title">Modifier</button>
+    <button type="button" class="danger" (click)="deleted.emit(task().id)"
+      [attr.aria-label]="'Supprimer ' + task().title">Supprimer</button>
+  </div>
+</div>

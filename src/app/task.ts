@@ -49,3 +49,5 @@ export function saveTasks(tasks: Task[]): boolean {
     return false;
   }
 }
+
+export type TaskData = Pick<Task, 'title' | 'description' | 'dueDate'>;
