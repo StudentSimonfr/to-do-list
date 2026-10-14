@@ -1,3 +1,4 @@
+//TaskItem ne modifie rien : il émet des événements (toggled,edit,deleted) vers TaskList.
 import { Component, input, output } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Task } from '../task';

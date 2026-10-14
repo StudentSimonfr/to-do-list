@@ -1,3 +1,4 @@
+//lit la liste, applique recherche, filtre et tri avec un computed , puis affiche un TaskItem par tâche.
 import { Component, computed, inject, signal } from '@angular/core';
 import { Task, TaskData } from '../task';
 import { TaskService } from '../task.service';

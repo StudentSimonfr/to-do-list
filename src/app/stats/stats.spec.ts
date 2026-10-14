@@ -1,3 +1,4 @@
+//lit les mêmes valeurs calculées du service : les chiffres sont toujours cohérents.
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Stats } from './stats';

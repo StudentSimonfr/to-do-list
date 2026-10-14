@@ -1,3 +1,4 @@
+//TaskForm valide la saisie et émet saved;TaskList appelle alors le service
 import { Component, OnInit, input, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Task, TaskData } from '../task';
