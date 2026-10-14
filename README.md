@@ -48,12 +48,19 @@ git clone <url-du-depot>
 
 # Installer les dépendances
 npm install
-Scripts disponibles
-Commande	Description
+
+Scripts disponibles:
+
+Commande	Description:
+
 npm start	
+
 Lance le serveur de développement sur http://localhost:4200 (rechargement automatique)
+
 npm run build	Génère la version de production dans le dossier dist/
+
 npm test	
+
 Lance les tests unitaires
 
 
