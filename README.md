@@ -45,7 +45,6 @@ bash
 # Cloner le dépôt
 git clone <url-du-depot>
 
-
 # Installer les dépendances
 npm install
 
